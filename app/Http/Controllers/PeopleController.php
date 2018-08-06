@@ -17,6 +17,11 @@ class PeopleController extends Controller
 
     }
 
+    /**
+     * Returns some stuff
+     * @param integer $mis_id
+     * @return array
+     */
     public function show($mis_id) {
 
     	$user = Person::get(30141843);
