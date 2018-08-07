@@ -4,7 +4,7 @@
 			<button class="navbar-toggle" data-target="#navbar-collapse" data-toggle="collapse">
 				<i class="fa fa-bars"></i>
 			</button>
-			<a href="#leap-about-modal" data-toggle="modal"><img alt="Leap-logo" class="navbar-brand" src="{{URL::asset('img/leap-logo.png')}}"></a>
+			<a href="#leap-about-modal" data-toggle="modal"><img alt="Leap-logo" class="navbar-brand" src="{{ URL::asset('img/leap-logo.png') }}"></a>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			@if ($user->staff)
@@ -20,7 +20,8 @@
 				<span class="hidden-sm">
 				Logged in as
 				</span>
-				<a href="/people/<?= $user->mis_id; ?>" class="navbar-link"><?= $user->full_name; ?></a>
+				<a href="/people/{{ $user->mis_id }}" class="navbar-link">{{ $user->full_name }}</a>
 			</p>
-		</div>			
-			
+		</div>	
+	</nav>		
+</div>		

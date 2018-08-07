@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Person;
+use App\Models\Person;
 
-class PeopleController extends Controller
+class PeopleController extends BaseController
 {
     public function __construct() {
 
@@ -26,14 +26,18 @@ class PeopleController extends Controller
 
     	$user = Person::get(30141843);
     	$user->admin = Person::is_admin($user->id);
+        $user->affiliation  = $user->staff ? 'staff' : 'student';
     	$person = Person::get($mis_id);
+
 
 
 
     	return view('test', [
     		'user' 		=> $user,
-    		'person' 	=> $person,
-    		'foo' 		=> 'bar'
+            'person'    => $person, // Do we need person as well as topic?
+    		'topic' 	=> $person,
+    		'foo' 		=> 'bar',
+            'controller_name' => $this->controller_name()
     	]);
 
     }

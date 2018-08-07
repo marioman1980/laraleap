@@ -1,13 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Person extends Model
+class Person extends BaseModel
 {
-
     /**
      *
      * @param integer or string
@@ -34,5 +33,17 @@ class Person extends Model
 
         return strpos($admin_users->value, "'".$person_id."'") == true ? true : false;
     }    
+
+    /**
+     *
+     * @param object
+     */
+    public function get_photo($person) {
+
+        if($person->photo) {
+
+            return "data:image/png;base64,".base64_encode($person->photo);
+        }
+    }
 
 }
