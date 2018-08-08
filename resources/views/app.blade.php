@@ -13,6 +13,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/scripts.js') }}"></script>
 	<link href="https://fonts.googleapis.com/css?family=Oswald:500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">	
 
@@ -34,14 +35,29 @@
 			<div id="clidebar" class="col-lg-3 col-md-4 visible-lg visible-md">
 				@include('people.namebox')
 				@if ($topic->kind_of() == 'Person')
-					<!-- Next lesson bit here -->
+<!-- Next lesson bit here -->
 					@include('layouts.sidebar.person_buttons')
-
-				@endif				
+<!-- Badges bit here -->					
+				@elseif ($topic->kind_of() == 'Course')
+<!-- Come back to this bit once course controller/model in place -->
+					@include('layouts.sidebar.course_buttons')
+				@endif	
+				<div id="sidebar-accordion" class="panel-group">
+					@if (($topic->kind_of() == 'Person') && (!$topic->staff))
+						@include('layouts.sidebar.personal_details')
+					@endif
+					@include('layouts.sidebar.timeline_links')
+					@include('layouts.sidebar.moodle_links')
+					@include('layouts.sidebar.custom_links')
+				</div>			
 			</div>
 		@endif
+			<div id="main-content" class="col-xs-12 col-lg-9 col-md-8">
+				@yield('content')
+			</div>
 		</div>
-		@yield('content')
+
+		
 	</div>
 </body>
 </html>

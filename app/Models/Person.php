@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class Person extends BaseModel
 {
+
+    public function __construct() {
+
+    }
+
     /**
      * @param integer or string
      *
@@ -16,9 +21,7 @@ class Person extends BaseModel
 
     	$person = Person::where('mis_id', $identifier)
     					->orWhere('username', $identifier)->first();
-                        
     	$person->full_name = $person->forename.' '.$person->surname;
-
     	return $person;
     }
 
@@ -27,10 +30,9 @@ class Person extends BaseModel
      *
      * @return boolean
      */
-    public static function is_admin($person_id) {
+    public function is_admin($person_id) {
 
         $admin_users = DB::table('settings')->where('var', 'admin_users')->first(['value']);
-
         return strpos($admin_users->value, "'".$person_id."'") == true ? true : false;
     }    
 
@@ -43,6 +45,24 @@ class Person extends BaseModel
 
             return "data:image/png;base64,".base64_encode($person->photo);
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function full_address() {
+
+        $address = str_replace("-", "", (str_replace("---", "", $this->address)));
+        $full_address = $address.', '.$this->town.', '.$this->postcode;
+        return $full_address;
+    }
+
+    /**
+     * @return integer
+     */
+    public function age() {
+
+        return date_diff(date_create($this->date_of_birth), date_create('now'))->y;
     }
 
 }

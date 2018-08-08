@@ -725,7 +725,7 @@ h2 {
   margin-bottom: 0px;
 }
 
-h4 {
+.person-info h4 {
   line-height: 1.1;
   margin-bottom: 5px !important;
 }
