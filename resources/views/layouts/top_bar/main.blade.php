@@ -8,10 +8,10 @@
 		</div>
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			@if ($user->staff)
-				@include('layouts.top_bar._search')
+				@include('layouts.top_bar.search')
 			@endif
 			<ul class="nav navbar-nav">
-				@include('layouts.top_bar._admin_menu')
+				@include('layouts.top_bar.admin_menu')
 			</ul>
 			<button class="navbar-btn btn btn-default navbar-right visible-sm" id="show-clidebar">
 				<i class="fa fa-bars"></i>
