@@ -10,7 +10,7 @@
 	</div>
 	<div id="moodle-courses" class="panel-collaps collapse">
 		<div class="panel-body">
-			<a href="#"><!-- Need Dynamic Moodle Link Here -->
+			<a href="https://moodle.southdevon.ac.uk">
 				<h4>
 					<i class="fa fa-home"></i> Moodle Home
 				</h4>

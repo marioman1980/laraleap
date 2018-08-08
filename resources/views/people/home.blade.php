@@ -10,7 +10,7 @@
 					<div class="row">
 						<div class="col-xs-2 hidden-xs hidden-sm">
 							<div id="news"><!-- Check for news -->
-								@if (isset($news))
+								@if (!isset($news))
 									@include('people.news_modal')
 								@endif
 							</div>
