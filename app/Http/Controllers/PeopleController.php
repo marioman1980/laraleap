@@ -27,15 +27,15 @@ class PeopleController extends BaseController
     	$user = Person::get(30141843);
     	$user->admin = Person::is_admin($user->id);
         $user->affiliation  = $user->staff ? 'staff' : 'student';
-    	$person = Person::get($mis_id);
+    	$topic = Person::get($mis_id);
 
 
 
 
-    	return view('test', [
+    	return view('people', [
     		'user' 		=> $user,
-            'person'    => $person, // Do we need person as well as topic?
-    		'topic' 	=> $person,
+            // 'person'    => $person,
+    		'topic' 	=> $topic,
     		'foo' 		=> 'bar',
             'controller_name' => $this->controller_name()
     	]);
