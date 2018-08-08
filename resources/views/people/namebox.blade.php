@@ -1,3 +1,5 @@
+<!-- TEMPLATE INCOMPLETE -->
+
 <div class="panel panel-default namebox">
 	<div class="panel-body">
 		<div class="row">
@@ -20,4 +22,4 @@
 	</div>
 </div>
 
-<!-- There are still some bits missing from this template -->
+<!-- TEMPLATE INCOMPLETE -->

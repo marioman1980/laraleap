@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 class Person extends BaseModel
 {
     /**
-     *
      * @param integer or string
+     *
      * @return object
      */
     public static function get($identifier) {
@@ -23,8 +23,8 @@ class Person extends BaseModel
     }
 
     /**
-     *
      * @param integer
+     *
      * @return boolean
      */
     public static function is_admin($person_id) {
@@ -35,7 +35,6 @@ class Person extends BaseModel
     }    
 
     /**
-     *
      * @param object
      */
     public function get_photo($person) {

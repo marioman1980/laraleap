@@ -1,3 +1,4 @@
+<!-- TEMPLATE INCOMPLETE -->
 
 @if ($user->admin)
 	<li class="dropdown">
@@ -17,3 +18,5 @@
 		</ul>
 	</li>		
 @endif
+
+<!-- TEMPLATE INCOMPLETE -->

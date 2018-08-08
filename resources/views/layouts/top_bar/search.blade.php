@@ -1,3 +1,5 @@
+<!-- TEMPLATE INCOMPLETE -->
+
 <form class="navbar-form navbar-left" method="post" action="{{ url('people/search') }}" enctype="multipart/form-data">
 	<div class="input-group">
 		<input  class="form-control" placeholder="Search...">
@@ -6,3 +8,5 @@
 		</span>
 	</div>		
 </form>
+
+<!-- TEMPLATE INCOMPLETE -->

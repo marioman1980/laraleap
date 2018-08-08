@@ -14,12 +14,11 @@ class PeopleController extends BaseController
     public function index() {
 
     	return redirect('/people/30141843');
-
     }
 
     /**
-     * Returns some stuff
      * @param integer $mis_id
+     *
      * @return array
      */
     public function show($mis_id) {
@@ -28,9 +27,6 @@ class PeopleController extends BaseController
     	$user->admin = Person::is_admin($user->id);
         $user->affiliation  = $user->staff ? 'staff' : 'student';
     	$topic = Person::get($mis_id);
-
-
-
 
     	return view('people', [
     		'user' 		=> $user,
@@ -41,4 +37,5 @@ class PeopleController extends BaseController
     	]);
 
     }
+
 }
