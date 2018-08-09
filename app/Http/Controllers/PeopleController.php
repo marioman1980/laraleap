@@ -27,10 +27,10 @@ class PeopleController extends BaseController
 
     	return view('people', [
     		'user' 		=> $user,
-            // 'person'    => $person,
     		'topic' 	=> $topic,
     		'foo' 		=> 'bar',
-            'controller_name' => $this->controller_name()
+            'controller_name' => $this->controller_name(),
+            'notify' => $user->last_active <= date("Y-m-d", strtotime("-2 day"))
     	]);
 
     }

@@ -1,5 +1,3 @@
-<!-- TEMPLATE INCOMPLETE -->
-
 <div class="row">
  	<div class="col-xs-12">
  		<i class="fa fa-info-circle fa-2x modal-text" aria-hidden="true" data-target="#newsModal" data-toggle="modal" style="color: #4f2170"></i>
@@ -24,6 +22,8 @@
 		</div>
 	</div>
 </div>
-<!-- Check if notify JS here -->
-
-<!-- TEMPLATE INCOMPLETE -->
+@if ($notify)
+	<script>
+	    $('#newsModal').modal();
+	</script>
+@endif

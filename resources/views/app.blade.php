@@ -2,16 +2,16 @@
 <html>
 <head>
 	<title>{{ config('app.name') }} | {{ $topic->full_name }}</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css">
 	<!-- Below two javascript links can be included at the bottom of page, just before </body> to improve performance -->
 	<!-- jQuery library by Google-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" ></script>
 	<!-- JavaScript from bootstrap CDN -->
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" async></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" async></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript" src="{{ URL::asset('js/scripts.js') }}"></script>
+
 	<link href="https://fonts.googleapis.com/css?family=Oswald:500" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
@@ -59,5 +59,7 @@
 
 		
 	</div>
+	<script type="text/javascript" src="{{ URL::asset('js/scripts.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/cloud.js') }}"></script>	
 </body>
 </html>
