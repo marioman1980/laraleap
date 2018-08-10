@@ -12,6 +12,43 @@ class Person extends BaseModel
 
     }
 
+    /*****************************
+     *
+     * Define relationships
+     *
+     *****************************/
+
+    public function aspirations() {
+        
+        return $this->hasMany(Aspiration::class);
+    }
+
+    public function progresses() {
+        
+        return $this->hasMany(Progress::class);
+    }  
+
+    public function progress_reviews() {
+        
+        return $this->hasMany(ProgressReview::class);
+    }
+
+    public function initial_reviews() {
+        
+        return $this->hasMany(InitialReview::class);
+    } 
+
+    public function attendances() {
+        
+        return $this->hasMany(Attendance::class);
+    }  
+
+    /*****************************
+     *
+     * Other functions
+     *
+     *****************************/                  
+
     /**
      * @param integer or string
      *
@@ -63,6 +100,11 @@ class Person extends BaseModel
     public function age() {
 
         return date_diff(date_create($this->date_of_birth), date_create('now'))->y;
+    }
+
+    public function get_attendance($course_type) {
+
+        return DB::table('attendances')->where('course_type', $course_type)->where('person_id', $this->id)->orderBy('id', 'DESC')->first();
     }
 
 }

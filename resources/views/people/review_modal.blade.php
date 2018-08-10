@@ -62,7 +62,7 @@
 				@endif	
 				<div class="form-group row">
 					<div class="col-md-12">
-					<textarea class="form-control" style="height: 200px" placeholder="Learner / Tutor Comments..." {{ !$user->staff ? 'disabled' : '' }}></textarea>
+						<textarea class="form-control" style="height: 200px" placeholder="Learner / Tutor Comments..." {{ !$user->staff ? 'disabled' : '' }}></textarea>
 					</div>
 				</div>		
 				<div class="form-group row" id="current-level">

@@ -3,42 +3,40 @@
 <?php $npr = 5; ?><!-- No. of progress reviews -->
 
 <div class="col-md-12">
-<!-- Check progress bar -->
-	@if (isset($progress_bar))
-		<p style="text-align: center">It looks like you are not currently enrolled on any courses at South Devon College. If you feel this is a mistake, please speak to your Personal Tutor or visit Helpzone on Level 3.</p>
-	@endif
-<!-- Foreach progress_bar -->
+@if (!$progress_bar)
+	<p style="text-align: center">It looks like you are not currently enrolled on any courses at South Devon College. If you feel this is a mistake, please speak to your Personal Tutor or visit Helpzone on Level 3.</p>
+@else
+@foreach ($progress_bar as $progress)
 	<div class="course-progress">
 		<div class="row row-eq-height">
-		<!-- If $progress->show_par_reviews -->	
-		@if (1 == 1)
-			<div class="col-md-6 col-xs-12 top-section">
+		@if ($progress->show_par_reviews())
+			<div class="col-md-6 col-xs-12 top-section {{ $progress->initial ? 'present' : '' }} {{ $progress->initial || (!$progress->initial && App\Models\InitialReview::par_enabled($user)) ? 'initial-review clickable' : '' }}" data-id="{{ $progress->initial ? $progress->initial->id : '' }}" data-progress-id="{{ $progress->id }}" title="{{ $user->staff ? strtoupper($progress->course_code) : '' }}">
 				<h4 style="margin-bottom: 5px">Target Grade For</h4>
-				<h4>COURSE TITLE</h4><!-- Get course title -->
+				<h4>{{ strtoupper($progress->course_title) }}</h4>
+			@if ($progress->initial)
+				<h3>{{ $progress->initial->target_grade }}</h3>
+			@endif
 			</div>
 		@else	
-		<!-- ELSE -->
-			<div class="col-md-6 col-xs-12 top-section">
-				<h4>COURSE TITLE</h4><!-- Get course title -->
+			<div class="col-md-6 col-xs-12 top-section" title="{{ $user->staff ? strtoupper($progress->course_code) : '' }}">
+				<h4>{{ strtoupper($progress->course_title) }}</h4>
 			</div>	
-		<!-- End if $progress->show_par_reviews -->
 		@endif
 		<!-- GET bg-color for div -->
-			<div class="col-md-6 col-xs-12 top-section attendance-block clickable" style="background-color: #a66" data-toggle="modal" data-target="#modal"><!-- Get attendance id -->
+			<div class="col-md-6 col-xs-12 top-section attendance-block clickable" style="background-color: #a66" data-toggle="modal" data-target="#modal_"><!-- Get attendance id -->
 				<h4>Attendance</h4>
-				@if (1 == 1)<!-- Check attendance -->
+				@if (!$topic->get_attendance($progress->course_type))
 					<h3> 0%</h3>
 				@else
-					<h3> 90%</h3><!-- Get attendance % -->
+					<h3> {{ $topic->get_attendance($progress->course_type)->att_year }}%</h3>
 				@endif
 			</div>
 		</div>
-	<!-- If $progress->show_par_reviews -->	
-	@if (1 == 1)	
+	@if ($progress->show_par_reviews())	
 		<div class="row">
-			<div class="col-md-2 hidden-xs col-sm-2 review-section" data-id="" data-editable=""><!-- Get par info -->
+			<div class="col-md-2 hidden-xs col-sm-2 review-section {{ $progress->initial ? 'present' : '' }} {{ $progress->initial || (!$progress->initial && App\Models\InitialReview::par_enabled($user)) ? 'initial-review clickable' : '' }}" data-id="{{ $progress->initial ? $progress->initial->id : '' }}" data-progress-id="{{ $progress->id }}">
 				<h5> Initial Review</h5>
-				@if (1 == 1)<!-- Check initial review -->
+				@if ($progress->initial)
 					<h4> Completed</h4>
 				@else
 					Incomplete
@@ -60,7 +58,8 @@
 		</div>
 	@endif	
 	</div>
-<!-- End foreach progress_bar -->	
+@endforeach
+@endif
 	<hr>
 </div>
 

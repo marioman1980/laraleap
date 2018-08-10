@@ -24,3 +24,5 @@ Route::get('/people/{mis_id}', 'PeopleController@show');
 
 
 Route::get('/oracle', 'EbsController@index');
+
+Route::get('/test', 'TestController@index');

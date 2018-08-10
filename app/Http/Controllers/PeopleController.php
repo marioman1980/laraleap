@@ -25,14 +25,50 @@ class PeopleController extends BaseController
         $user->affiliation  = $user->staff ? 'staff' : 'student';
     	$topic = Person::get($mis_id);
 
+
+        // $progresses = $this->get_progress_data($topic);
+
+        // foreach($progresses as $progress) {
+        //     var_dump($progress->initial->body);
+        // }
+        
+
     	return view('people', [
     		'user' 		=> $user,
     		'topic' 	=> $topic,
     		'foo' 		=> 'bar',
             'controller_name' => $this->controller_name(),
-            'notify' => $user->last_active <= date("Y-m-d", strtotime("-2 day"))
+            'notify' => $user->last_active <= date("Y-m-d", strtotime("-2 day")),
+            'aspiration' => $this->get_aspiration($topic),
+            'progress_bar' => $this->get_progress_data($topic)
     	]);
+    }
 
+    /**
+     * @param object $topic
+     *
+     * @return object
+     */
+    public function get_aspiration($topic) {
+
+        return $topic->aspirations()->orderBy('id', 'desc')->first() ? $topic->aspirations()->orderBy('id', 'DESC')->first()->aspiration : NULL;
+    }
+
+    /**
+     * @param object $topic
+     *
+     * @return array
+     */
+    public function get_progress_data($topic) {
+
+        $progresses =  count($topic->progresses()->where('course_status', 'Active')->get()) == 0 ? NULL : $topic->progresses()->where('course_status', 'Active')->orderBy('course_type', 'ASC')->orderBy('course_title', 'ASC')->get();
+
+        if($progresses){
+            foreach($progresses as $progress) {
+                $progress->initial = $progress->initial_reviews()->orderBy('id', 'DESC')->first();
+            }            
+        }
+        return $progresses;
     }
 
 }

@@ -15,7 +15,8 @@ function person_can_edit_grade()
 
 $(".initial-review, .progress-review").click(function() 
 {
-    $("#review-modal").modal("show");// REMOVE!!!
+    $(this).hasClass('progress-review') ? $("#review-modal").modal("show") : $("#review-modal").modal("hide");// REMOVE!!!
+    $(this).hasClass('initial-review') ? $("#initial-modal").modal("show") : $("#initial-modal").modal("hide");// REMOVE!!!
 
     // UNCOMMENT BELOW
 
