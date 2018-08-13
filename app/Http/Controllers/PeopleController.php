@@ -26,10 +26,13 @@ class PeopleController extends BaseController
     	$topic = Person::get($mis_id);
 
 
-        // $progresses = $this->get_progress_data($topic);
+        $progresses = $this->get_progress_data($topic);
+
+
+
 
         // foreach($progresses as $progress) {
-        //     var_dump($progress->initial->body);
+        //     var_dump($progress->reviews[0]);
         // }
         
 
@@ -66,9 +69,24 @@ class PeopleController extends BaseController
         if($progresses){
             foreach($progresses as $progress) {
                 $progress->initial = $progress->initial_reviews()->orderBy('id', 'DESC')->first();
+                $progress->reviews = $progress->progress_reviews()->orderBy('number', 'ASC')->get();
             }            
         }
         return $progresses;
+    }
+
+    // NOT USED
+    public function get_reviews($progress) {
+
+        $data = [];
+
+        $progress->reviews = $progress->progress_reviews()->orderBy('number', 'ASC')->get();
+
+        foreach($progress->reviews as $review) {
+
+            $key = $review->number;
+            $data[$key] = $review;
+        }
     }
 
 }

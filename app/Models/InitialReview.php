@@ -32,6 +32,9 @@ class InitialReview extends Model
      *
      *****************************/
 
+    /**
+     * @return boolean
+     */
     public static function par_enabled($user) {
 
     	return $user->staff != 1 ? 0 : 1;

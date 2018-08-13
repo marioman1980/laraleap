@@ -161,7 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // For Oracle connection
-        // Yajra\Oci8\Oci8ServiceProvider::class
+        Yajra\Oci8\Oci8ServiceProvider::class
 
     ],
 

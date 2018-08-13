@@ -42,22 +42,29 @@
 					Incomplete
 				@endif
 			</div>
-		@for ($i = 1; $i < $npr + 1; $i++)
-		    @if (1 == 1)<!-- Check review presence and no. -->
-				<div class="col-md-2 hidden-xs col-sm-2 review-section has_tooltip progress-review clickable" title="" data-placement="right" style="color:black" data-id="" data-att="" data-number="{{ $i }}" data-max-number="{{ $npr }}" data-editable=""><!-- Fill in the gaps -->
+		@for ($i = 0; $i < $npr; $i++)
+			@if (isset($progress->reviews[$i]))
+				<?php $review = $progress->reviews[$i]; ?>
+				<div class="col-md-2 hidden-xs col-sm-2 review-section has_tooltip progress-review clickable {{ $review->level }}" title="{{ $review->ragp_desc() }}" data-placement="right" style="color:black" data-id="" data-att="" data-number="{{ $i }}" data-max-number="{{ $npr }}" data-editable=""><!-- Fill in the gaps -->
 				@if ($i == $npr)
 					<h5> Achieved</h5>
 				@else
 					<h5> Working at</h5>
 				@endif
-					<h4>MERIT</h4><!-- Get working at -->
-					<h6 class="pull-bottom pull-right"> PAR {{ $i }}
+					<h4>{{ $review->working_at }}</h4><!-- Get working at -->
+					<h6 class="pull-bottom pull-right"> PAR {{ $i + 1}}</h6>
+				</div>
+			@else
+				<div class="col-md-2 hidden-xs col-sm-2 review-section">
+					<h5> Review</h5>
+					<h6 class="pull-bottom pull-right"> PAR {{ $i + 1}}</h6>
 				</div>
 		    @endif
 		@endfor			
 		</div>
 	@endif	
 	</div>
+	<hr>
 @endforeach
 @endif
 	<hr>

@@ -31,6 +31,15 @@ class Progress extends Model
         return $this->hasMany(InitialReview::class);
     } 
 
+    /*****************************
+     *
+     * Other functions
+     *
+     *****************************/
+
+    /**
+     * @return boolean
+     */
     public function show_par_reviews() {
 
     	return $this->par_type == 'FE' ? true : false;
