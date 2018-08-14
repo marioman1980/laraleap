@@ -29,6 +29,8 @@ class PeopleController extends BaseController
         $progresses = $this->get_progress_data($topic);
 
 
+        setting(['nums' => [5,7,9]])->save();
+        var_dump(setting('students_create_events'));
 
 
         // foreach($progresses as $progress) {

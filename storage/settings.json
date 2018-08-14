@@ -1,0 +1,22 @@
+{
+    "foo": "bar",
+    "cat": "dog",
+    "bar": "foo",
+    "num": 5,
+    "nums": [
+        5,
+        7,
+        9
+    ],
+    "moodle_path": "",
+    "students_create_events": [
+        "targets",
+        "notes",
+        "profile_questions",
+        "qualifications",
+        "achievements",
+        "tt_activities",
+        "simple_poll_answers",
+        "work_packages"
+    ]
+}
