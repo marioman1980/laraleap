@@ -20,17 +20,13 @@ class PeopleController extends BaseController
      */
     public function show($mis_id) {
 
-    	$user = Person::get(30141843);
-    	$user->admin = $user->is_admin($user->id);
-        $user->affiliation  = $user->staff ? 'staff' : 'student';
+        $user = $this->user;
     	$topic = Person::get($mis_id);
-
-
         $progresses = $this->get_progress_data($topic);
 
 
         setting(['maintenance_mode' => 'test'])->save();
-        var_dump(setting('admin_users'));
+        var_dump(setting('clidebar_links'));
 
 
         // foreach($progresses as $progress) {

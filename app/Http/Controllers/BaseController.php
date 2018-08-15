@@ -7,6 +7,12 @@ use App\Models\Person;
 
 class BaseController extends Controller
 {
+	public function __construct() {
+
+    	$this->user = Person::get(30141843);
+    	$this->user->admin = $this->user->is_admin($this->user->id);
+        $this->user->affiliation  = $this->user->staff ? 'staff' : 'student';		
+	}
 
 	/**
 	 * @return string
