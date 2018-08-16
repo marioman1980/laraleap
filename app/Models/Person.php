@@ -69,8 +69,8 @@ class Person extends BaseModel
      */
     public function is_admin($person_id) {
 
-        $admin_users = DB::table('settings')->where('var', 'admin_users')->first(['value']);
-        return strpos($admin_users->value, "'".$person_id."'") == true ? true : false;
+        $admin_users = setting('admin_users');
+        return in_array($person_id, $admin_users);
     }    
 
     /**

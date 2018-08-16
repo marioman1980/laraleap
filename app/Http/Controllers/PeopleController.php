@@ -21,7 +21,7 @@ class PeopleController extends BaseController
     public function show($mis_id) {
 
         $user = $this->user;
-    	$topic = Person::get($mis_id);
+        $topic = $this->set_topic($mis_id);
         $progresses = $this->get_progress_data($topic);
 
 

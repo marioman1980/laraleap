@@ -22,6 +22,27 @@ class BaseController extends Controller
 		if(get_class(request()->route()->controller) == 'App\Http\Controllers\PeopleController') {
 			return 'People';
 		}
-	}	
+		else if (get_class(request()->route()->controller) == 'App\Http\Controllers\TimetablesController') {
+			return 'Timetables';
+		}
+	}
+
+	/**
+	 * @param integer $id
+	 *
+	 * @return object
+	 */
+	public function set_topic($id){
+		
+		if(get_class(request()->route()->controller) == 'App\Http\Controllers\PeopleController') {
+			return Person::get($id);
+		}
+		else if(get_class(request()->route()->controller) == 'App\Http\Controllers\CoursesController') {
+			return Course::get($id);
+		}
+		else {
+			return Person::get($id);
+		}
+	}
 
 }

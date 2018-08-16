@@ -8,14 +8,20 @@ use App\Http\Controllers\Controller;
 class TimetablesController extends BaseController
 {
 
-    public function index() {
+    /**
+     * @param integer $mis_id
+     *
+     * @return array
+     */
+    public function index($mis_id) {
     	
     	$user = $this->user;
-    	$topic = Person::get($mis_id);
+    	$topic = $this->set_topic($mis_id);
 
     	return view('timetables', [
     		'user' => $user,
-    		'topic' => $topic
+    		'topic' => $topic,
+    		'controller_name' => $this->controller_name()
     	]);
     }
 }
