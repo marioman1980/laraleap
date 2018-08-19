@@ -21,7 +21,8 @@ class TimetablesController extends BaseController
     	return view('timetables', [
     		'user' => $user,
     		'topic' => $topic,
-    		'controller_name' => $this->controller_name()
+    		'controller_name' => $this->controller_name(),
+            'date' => $this->date()
     	]);
     }
 }

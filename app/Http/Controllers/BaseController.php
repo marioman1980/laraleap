@@ -45,4 +45,16 @@ class BaseController extends Controller
 		}
 	}
 
+	/**
+	 * @return date()
+	 */
+	public function date() {
+
+		// $date = time();
+		// $date = date('d-M-Y', $date);
+
+		$date = date('d F Y');
+		return date('d F Y', strtotime('previous monday', strtotime($date)));
+	}
+
 }
