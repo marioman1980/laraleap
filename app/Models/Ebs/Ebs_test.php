@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Ebs;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Ebs_test extends Ebs
+class Ebs_test extends EbsModel
 {
 
     public function oracle_test() {
