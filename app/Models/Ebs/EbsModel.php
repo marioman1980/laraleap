@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Ebs;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Ebs extends BaseModel
+class EbsModel extends Model
 {
 
     public function __construct() {

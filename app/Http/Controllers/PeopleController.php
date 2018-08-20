@@ -73,6 +73,11 @@ class PeopleController extends BaseController
         return $progresses;
     }
 
+    public function search() {
+
+        return view('people/cl_search');
+    }
+
     // NOT USED
     public function get_reviews($progress) {
 

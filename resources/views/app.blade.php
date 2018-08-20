@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
 <head>
-	<title>{{ config('app.name') }} | {{ $topic->full_name }}</title>
+	<title>{{ config('app.name') }} | @if(!empty($topic)){{ $topic->full_name }}@endif</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css">
@@ -21,7 +21,7 @@
 <body id="cleap">
 	@include('layouts.top_bar.main')
 	<div class="container">
-	@if ($topic)
+	@if (!empty($topic))
 		<div class="row visible-xs visible-sm">
 			<div class="col-xs-12 hidden-clidebar">
 				<h3 style="margin-top: 0">
@@ -31,7 +31,7 @@
 		</div>
 	@endif
 		<div class="row">
-		@if ($topic)
+		@if (!empty($topic))
 			<div id="clidebar" class="col-lg-3 col-md-4 visible-lg visible-md">
 				@include('people.namebox')
 				@if ($topic->kind_of() == 'Person')

@@ -34,6 +34,9 @@
 		</div>
 	@endfor
 	</div>
+@for ($i = 0; $i < 7; $i++)
+	@include('timetables.cloud_day')
+@endfor
 	<div class='col-xs-1 day'>
 		<button class='btn btn-primary' id='show_weekend' style='width:100%'>
 		  	<i class='fa fa-angle-double-right'></i>

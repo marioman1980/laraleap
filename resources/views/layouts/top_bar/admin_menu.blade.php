@@ -9,12 +9,15 @@
 			<li><a href="{{ url('/admin/views') }}"><i class="fa fa-th-list fa-fw"></i>Setup Views</a></li>
 			<li><a href="{{ url('admin/stats') }}"><i class="fa fa-bar-chart-o fa-fw"></i>Statistics</a></li>
 			<li class="divider"></li>
+		@if(!empty($topic))
 			<li class="dropdown-header">Data for {{ $topic->full_name }}</li>
 			<li>
-			<a href="{{ url()->current().'?refresh=true' }}">
-				<i class="fa fa-refresh fa-fw"></i>
-				Refresh from MIS
-			</a></li>
+				<a href="{{ url()->current().'?refresh=true' }}">
+					<i class="fa fa-refresh fa-fw"></i>
+					Refresh from MIS
+				</a>
+			</li>
+		@endif
 		</ul>
 	</li>		
 @endif

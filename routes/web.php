@@ -18,8 +18,10 @@
 Route::get('/', 'PeopleController@index');
 
 // Route::get('/people/{id}', 'PeopleController@index');
+Route::get('/people/search', 'PeopleController@search');
 Route::get('/people/{mis_id}', 'PeopleController@show');
 Route::get('/people/{mis_id}/timetables', 'TimetablesController@index');
+
 
 
 

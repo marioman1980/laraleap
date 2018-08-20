@@ -11,7 +11,9 @@ class BaseController extends Controller
 
     	$this->user = Person::get(30141843);
     	$this->user->admin = $this->user->is_admin($this->user->id);
-        $this->user->affiliation  = $this->user->staff ? 'staff' : 'student';		
+        $this->user->affiliation = $this->user->staff ? 'staff' : 'student';		
+
+        \View::share('user', $this->user);
 	}
 
 	/**
@@ -50,11 +52,12 @@ class BaseController extends Controller
 	 */
 	public function date() {
 
-		// $date = time();
-		// $date = date('d-M-Y', $date);
-
-		$date = date('d F Y');
-		return date('d F Y', strtotime('previous monday', strtotime($date)));
+		if(date('w') == 1) {
+			return date('d F Y');
+		}
+		else {
+			return date('d F Y', strtotime('previous monday', strtotime($date)));
+		}
 	}
 
 }

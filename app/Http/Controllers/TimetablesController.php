@@ -17,6 +17,10 @@ class TimetablesController extends BaseController
     	
     	$user = $this->user;
     	$topic = $this->set_topic($mis_id);
+        $date = $this->date();
+        $end_date = strtotime($date.' +1 week');
+
+
 
     	return view('timetables', [
     		'user' => $user,
