@@ -1,7 +1,7 @@
 <!-- TEMPLATE INCOMPLETE -->
 <div class='row'>
 	<ul class='col-xs-9 text-left pager' style='margin-top:0;padding-right:0;margin-bottom:0'>
-		<form accept-charset="UTF-8" action="https://leap.southdevon.ac.uk/people/{{ $topic->mis_id }}/timetables" class="form-inline" method="get">
+		<form accept-charset="UTF-8" action="/people/{{ $topic->mis_id }}/timetables" class="form-inline" method="get">
 			<li>
 <!-- NEED TO GET BEGINNING OF WEEK -->			
 				<a class="btn" href="/people/{{ $topic->mis_id }}/timetables?date={{ date('d F Y', strtotime($date.'-1 week')) }}">

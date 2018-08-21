@@ -56,7 +56,7 @@ class BaseController extends Controller
 			return date('d F Y');
 		}
 		else {
-			return date('d F Y', strtotime('previous monday', strtotime($date)));
+			return date('d F Y', strtotime('previous monday', strtotime(date('d F Y'))));
 		}
 	}
 

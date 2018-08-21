@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class EbsModel extends Model
 {
-
-    public function __construct() {
-
-        $this->connection = DB::connection('oracle');
-    }    
+	protected $connection = 'oracle';
 
 }

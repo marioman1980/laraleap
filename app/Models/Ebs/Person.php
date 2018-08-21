@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\DB;
 class Person extends EbsModel
 {
 
+	protected $connection = 'oracle';
+
     public function get($mis_id) {
 
-        return $this->connection->table('PEOPLE')->where('PERSON_CODE', $mis_id)->first();
-    }  
+    	return Person::where('PERSON_CODE', $mis_id)->first();
+    }     
 
 }
