@@ -77,6 +77,14 @@ class RegisterEventDetailsSlot extends EbsModel
 
     public function status() {
 
-        return $this->usage()->is_positive;
+        if($this->usage()->is_positive == 'Y') {
+            return 'complete';
+        }
+        else if($this->usage()->is_positive == 'N') {
+            return 'incomplete';
+        }
+        else {
+            return 'unknown';
+        }
     } 
 }

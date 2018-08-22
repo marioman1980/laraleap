@@ -33,7 +33,7 @@
         	<div class="hidden-xs">{{ $hour }}.00</div>
 		</div>
 	@endfor
-	</div>
+	</div>	
 @for ($i = 0; $i < 7; $i++)
 	@include('timetables.cloud_day')
 @endfor
@@ -120,4 +120,4 @@
 	</div>
 </div>
 
-<!-- TEMPLATE INCOMPLETE -->
+<!-- TEMPLATE INCOMPLETE
