@@ -3,7 +3,7 @@
 <div class="btn-group btn-group-justified panel">
 	@if ($topic->staff)
 		@if ($controller_name == 'People')
-			<a href="#" class="btn btn-default"><i class="fa fa-fw fa-calendar"></i> Timetable</a>
+			<a href="/people/{{ $topic->mis_id }}/timetables" class="btn btn-default"><i class="fa fa-fw fa-calendar"></i> Timetable</a>
 		@endif
 	@else
 		@if ($controller_name == 'Timetables')
@@ -11,7 +11,7 @@
 				<i class="fa fa-fw fa-home"></i> Home</a>
 			</a>
 		@else
-			<a href="#" class="btn btn-default"><i class="fa fa-fw fa-calendar"></i> Timetable</a>	
+			<a href="/people/{{ $topic->mis_id }}/timetables" class="btn btn-default"><i class="fa fa-fw fa-calendar"></i> Timetable</a>	
 		@endif 	
 	@endif
 	@if ($user->staff)
